@@ -2,7 +2,7 @@ import logging
 import asyncio
 import datetime
 import random
-
+import time
 from telethon import errors
 from telethon import functions, types
 
@@ -31,6 +31,7 @@ async def main():
                         sent_messages.add(sent.id)
                         visited_channels.add(sent.peer_id.channel_id)
                         logging.info('Sent message to {}'.format(telegram_channel))
+                        time.sleep(60)
                 except ValueError:
                     logging.info('{} channel not found'.format(telegram_channel))
                 except errors.UsernameInvalidError:
